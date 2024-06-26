@@ -28,6 +28,11 @@ python main.py
 
 Will run in localhost:4080
 
+### Manual Test with Swagger
+```
+access http://localhost:4080/docs
+```
+
 ## Run tests
 ### Make
 ```
