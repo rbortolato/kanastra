@@ -18,14 +18,16 @@ def process_bill(file):
                 bill = Bill()
                 bill.create(row)
                 if not bill.validate():
-                    error.append(i+1)
+                    error.append(str(i))
                     continue
 
                 email.send(bill)
                 success += 1
             except Exception as e:
                 print(str(e))
-                error.append(i+1)
+                error.append(str(i))
                 continue
+
+    assert (len(error) > 0 or success > 0), "Arquivo está vazio"
 
     return {"processed": success, "unprocessed_line": ', '.join(error)}
